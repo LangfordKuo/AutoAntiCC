@@ -36,26 +36,14 @@ AutoAntiCC 是一个基于系统负载监控的自动化防护脚本，用于在
 
 ```bash
 # 将脚本下载到您的服务器
-git clone <repository-url>
+git clone https://github.com/LangfordKuo/AutoAntiCC.git
 cd autoanticc
 ```
 
 ### 2. 安装 Python 依赖
 
 ```bash
-pip install requests
-```
-
-或者创建 `requirements.txt` 文件：
-
-```txt
-requests>=2.25.0
-```
-
-然后运行：
-
-```bash
-pip install -r requirements.txt
+pip3 install requests
 ```
 
 ### 3. 配置 Cloudflare API 信息
@@ -120,23 +108,7 @@ python cloudflare.py
 
 ### 2. 配置为定时任务（推荐）
 
-使用 crontab 设置每分钟检查一次：
-
-```bash
-# 编辑当前用户的 crontab
-crontab -e
-
-# 添加以下行（请根据实际路径修改）
-* * * * * cd /path/to/autoanticc && /usr/bin/python3 cloudflare.py >> /var/log/autoanticc.log 2>&1
-```
-
-### 3. 日志查看
-
-脚本运行时会在控制台输出详细日志，如果配置了 crontab 重定向，可以查看日志文件：
-
-```bash
-tail -f /var/log/autoanticc.log
-```
+在宝塔中设置为每一分钟执行一次即可
 
 ## 参数说明
 
@@ -192,15 +164,6 @@ tail -f /var/log/autoanticc.log
    - 查看日志确认是否有错误信息
    - 检查开盾记录文件是否存在且时间有效
 
-### 调试模式
-
-要查看更详细的调试信息，可以在脚本中添加调试输出：
-
-```python
-import logging
-logging.basicConfig(level=logging.DEBUG)
-```
-
 ## 安全注意事项
 
 1. **API 令牌安全**：不要将 API 令牌提交到版本控制系统
@@ -231,10 +194,6 @@ def send_email_notification(subject, message):
     # 实现邮件发送逻辑
     pass
 ```
-
-### 3. 集成监控系统
-
-可以将脚本集成到现有的监控系统（如 Prometheus、Zabbix）中。
 
 ## 许可证
 
