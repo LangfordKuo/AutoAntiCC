@@ -1,5 +1,9 @@
 # AutoAntiCC - Cloudflare WAF 自动防护脚本
 
+> 超级详细的图文教程链接https://lyew.com/helpcontent/32.html
+>
+> 阿里云ESA自动开盾脚本https://github.com/LangfordKuo/AutoAntiCC_ESA
+
 ## 项目简介
 
 AutoAntiCC 是一个基于系统负载监控的自动化防护脚本，用于在服务器遭受 CC（Challenge Collapsar）攻击或高负载时，自动启用 Cloudflare WAF（Web Application Firewall）规则，提供实时防护。当系统负载恢复正常后，脚本会自动禁用 WAF 规则，确保正常访问不受影响。
@@ -208,5 +212,6 @@ def send_email_notification(subject, message):
 本工具为自动化防护脚本，请根据自身业务需求测试和调整参数。作者不对因使用本工具造成的任何直接或间接损失负责。
 
 ---
+
 
 **重要提示**：在使用本脚本前，请确保您了解 Cloudflare WAF 规则的影响，并在测试环境中充分验证。
